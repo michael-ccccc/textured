@@ -20,7 +20,7 @@
 #'
 #' @examples
 #' 
-#' @export
+#'
 txx_sanitize_tag_name <- function(tag_name){
   
   tag_name <- stringr::str_trim(tag_name)
