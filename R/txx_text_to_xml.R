@@ -8,7 +8,14 @@
 #' @export
 #'
 #' @examples
-txx_text_to_xml <- function(strings, tags, remove = ":"){
+#' 
+#' 
+#' 
+txx_text_to_xml <- function(strings, 
+                            tags, 
+                            remove = ":", 
+                            # split_character = "¬"
+                            ){
 
   # add a <start> to each string
   stringr::str_sub(strings, start = 0, end = 0) <- "<start>"
