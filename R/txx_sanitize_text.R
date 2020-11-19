@@ -17,7 +17,9 @@
 #' @export
 txx_sanitize_text <- function(text) {
   
-  stringr::replace_all(text,
+  # stopifnot(class(text) == "character", )
+  
+  stringr::str_replace_all(text,
                        pattern = c(
                          "&" = "&amp;",
                          "<" = "&lt;",
