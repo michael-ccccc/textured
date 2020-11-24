@@ -1,5 +1,21 @@
 
 
+#' Identify and rename duplicate tags by suffixing a number at the end
+#'
+#' The text needs to be in a state where the tags have been identified, but
+#' the tags have not been finished. Identifies the start tags, and then looks
+#' though for duplicates. Any duplicate tag is adjusted, putting a number at the
+#' end. (See \code{\link{txx_number_seen}})
+#'
+#' @param string 
+#'
+#' @return
+#'
+#'
+#' @examples
+#' 
+#' 
+#' 
 txx_rename_dup_tags <- function(string){
   
   tags <- stringr::str_extract_all(string, pattern = "(?<=<).*?(=>)")[[1]]
@@ -27,5 +43,7 @@ txx_rename_dup_tags <- function(string){
                      end = tags_replace_position_i) <- tags_label_i
     
   }
+  
+  string
   
 }

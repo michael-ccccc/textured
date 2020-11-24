@@ -25,11 +25,11 @@
 #' @examples
 #' 
 #' 
-txx_identify_sections <- function(string, tags, ignore_case = TRUE){
+txx_identify_sections <- function(string, tags, remove = NA_character_, ignore_case = TRUE){
   
   for(i in tags){
     
-    string <- str_replace_all(string, pattern = regex(i, ignore_case = ignore_case), replacement = txx_wrap_tag)
+    string <- stringr::str_replace_all(string, pattern = stringr::regex(i, ignore_case = ignore_case), replacement = txx_wrap_tag)
     
   }
   

@@ -15,7 +15,7 @@
 txx_sanitize_tag_sections <- function(string) {
   
   stringr::str_replace_all(string = string,
-                  pattern = regex("(?<=>).*", dotall = TRUE),
+                  pattern = stringr::regex("(?<=>).*", dotall = TRUE),
                   replacement = txx_sanitize_text)
   
   
