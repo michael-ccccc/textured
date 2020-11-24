@@ -22,11 +22,13 @@
 #' 
 #'
 txx_sanitize_tag_name <- function(tag_name){
-  
+  # TODO: workout a better order for all this
+    
   tag_name <- stringr::str_trim(tag_name)
   
   tag_name <- stringr::str_to_title(tag_name)
-  
+  # note str_to_title() treats '_' as not a space, other symbols as a space
+
   tag_name <- stringr::str_replace_all(tag_name, " ", "_")
   
   tag_name <- stringr::str_remove_all(tag_name, "[^A-Za-z0-9_]")

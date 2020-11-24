@@ -26,6 +26,11 @@
 #' 
 #' 
 txx_identify_sections <- function(string, tags, remove = NA_character_, ignore_case = TRUE){
+
+  # TODO: figure out remove - do we even still use it?
+  # TODO: txx_wrap_tag has some additional arguments we can use - need to
+  # figure out how to show these in this function, and maybe ultimately the
+  # final function.
   
   for(i in tags){
     
