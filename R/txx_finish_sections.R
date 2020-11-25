@@ -1,5 +1,14 @@
 
-txx_finish_sections <- function(string, split = "¬") {
+#' Title
+#'
+#' @param string 
+#' @param split 
+#'
+#' @return
+#' 
+#'
+#' @examples
+txx_finish_sections <- function(string, split = "\u00AC") {
   
   strings_split <- stringr::str_split(string, pattern = split)
   

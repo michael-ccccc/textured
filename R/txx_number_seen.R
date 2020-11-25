@@ -1,4 +1,12 @@
 
+#' Title
+#'
+#' @param strings 
+#'
+#' @return
+#' @export
+#'
+#' @examples
 txx_number_seen <- function(strings){
   
   seen <- numeric(length = length(strings))
@@ -12,5 +20,7 @@ txx_number_seen <- function(strings){
     seen[i] <- sum(string_i == seen_up_to_i)
     
   }
+  
+  seen
   
 }

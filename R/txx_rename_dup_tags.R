@@ -18,7 +18,7 @@
 #' 
 txx_rename_dup_tags <- function(string){
   
-  tags <- stringr::str_extract_all(string, pattern = "(?<=<).*?(=>)")[[1]]
+  tags <- stringr::str_extract_all(string, pattern = "(?<=<).*?(?=>)")[[1]]
   
   tags_seen <- txx_number_seen(tags)
   

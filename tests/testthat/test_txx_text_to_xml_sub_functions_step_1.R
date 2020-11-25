@@ -34,14 +34,14 @@ test_that("txx_sanitize_tag_name() - if name starts with number, prefix with '_'
 test_that("txx_wrap_tag() by default wraps tags in '¬<' and '>'", {
   
   expect_identical(txx_wrap_tag("A"),
-                   "¬<A>")
+                   "\u00AC<A>")
   
 })
 
 test_that("txx_wrap_tag() invokes txx_sanitize_tag_name()", {
   
   expect_identical(txx_wrap_tag("A B & C   "),
-                   "¬<A_B__C>")
+                   "\u00AC<A_B__C>")
   
 })
 
@@ -60,7 +60,7 @@ test_that("txx_identify_sections() can identify one tag",{
   expect_identical(
     txx_identify_sections(string = "TITLE: Henry goes shopping \nAUTHOR: Jane Doe", 
                           tags = "TITLE:"),
-    "¬<Title> Henry goes shopping \nAUTHOR: Jane Doe")
+    "\u00AC<Title> Henry goes shopping \nAUTHOR: Jane Doe")
   
 })
 
@@ -69,7 +69,7 @@ test_that("txx_identify_sections() can identify several tags", {
   expect_identical(
     txx_identify_sections(string = "TITLE: Henry goes shopping \nAUTHOR: Jane Doe", 
                           tags = c("TITLE:", "AUTHOR:")),
-    "¬<Title> Henry goes shopping \n¬<Author> Jane Doe")
+    "\u00AC<Title> Henry goes shopping \n\u00AC<Author> Jane Doe")
   
   
 })
@@ -79,7 +79,7 @@ test_that("txx_identify_sections() ignores case by default", {
   expect_identical(
     txx_identify_sections(string = "TITLE: Henry goes shopping \nAUTHOR: Jane Doe", 
                           tags = c("Title:", "Author:")),
-    "¬<Title> Henry goes shopping \n¬<Author> Jane Doe")
+    "\u00AC<Title> Henry goes shopping \n\u00AC<Author> Jane Doe")
   
 })
 
@@ -89,7 +89,7 @@ test_that("txx_identify_sections() ignore.case = FALSE works", {
     txx_identify_sections(string = "TITLE: Henry goes shopping \nAUTHOR: Jane Doe", 
                           tags = c("TITLE:", "Author:"),
                           ignore_case = FALSE),
-    "¬<Title> Henry goes shopping \nAUTHOR: Jane Doe")
+    "\u00AC<Title> Henry goes shopping \nAUTHOR: Jane Doe")
   
   
 })

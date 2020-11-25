@@ -18,7 +18,7 @@
 #' 
 #' 
 #' 
-txx_wrap_tag <- function(tag, split_character = "¬", start = "<", end = ">"){
+txx_wrap_tag <- function(tag, split_character = "\u00AC", start = "<", end = ">"){
   
   start <- stringr::str_c(split_character, start, collapse = "")
   
