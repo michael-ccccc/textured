@@ -2,22 +2,30 @@
 % Please edit documentation in R/txx_text_to_xml.R
 \name{txx_text_to_xml}
 \alias{txx_text_to_xml}
-\title{Test test test}
+\title{Transform semi-structured text into an XML structure}
 \usage{
-txx_text_to_xml(strings, tags, remove = ":")
+txx_text_to_xml(strings, tags)
 }
 \arguments{
-\item{strings}{}
+\item{strings}{A vector of character strings containing the semi-structured 
+text. Each string should represent a single entry (e.g. a single letter).}
 
-\item{tags}{}
-
-\item{remove}{}
+\item{tags}{The character strings that identify that a section has started, 
+e.g. "Diagnosis:" or "SUMMARY:". This may be variable from letter to letter,
+in which include all variants. Order matters - if there are tags that are
+contained within larger tags, put the larger tag first so that it is
+used in the string searches first.}
 }
 \value{
-
+A vector of character strings with the text transformed into an
+XML structure.
 }
 \description{
-test test test
+Transforms a character string into an XML structure by identifying (known) 
+words or phrases that indicates that a new section has started. These words
+or phrases (known as tags) need to be entered beforehand. Outputs can then
+be analyzed in other packages such as \code{XML} or \code{xml2}, to extract
+the interested sections.
 }
 \examples{
 

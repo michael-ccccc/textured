@@ -2,18 +2,26 @@
 % Please edit documentation in R/txx_finish_sections.R
 \name{txx_finish_sections}
 \alias{txx_finish_sections}
-\title{Title}
+\title{Adds end tags to match start tags.}
 \usage{
 txx_finish_sections(string, split = "¬")
 }
 \arguments{
-\item{string}{}
+\item{string}{The character string containing a single entry. Should have
+already been through the xml-transforming process so should have start
+sections identified and wrapped into a start tag.}
 
-\item{split}{}
+\item{split}{The character that is used to split the string}
 }
 \value{
-
+A character string; a modified of \code{string}
 }
 \description{
-Title
+Splits a string into the (incomplete) tagged sections according to the split 
+character, then identifies the start tag and adds a corresponding end tag.
+}
+\examples{
+
+
+
 }

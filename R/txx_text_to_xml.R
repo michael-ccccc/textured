@@ -23,7 +23,7 @@
 #' 
 #' @export
 txx_text_to_xml <- function(strings, 
-                            tags, 
+                            tags
                             # remove = ":"
                             # split_character = "\u00AC"
                             ){
