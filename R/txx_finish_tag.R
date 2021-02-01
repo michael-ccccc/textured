@@ -1,5 +1,11 @@
-
-
+#' Title
+#'
+#' @param string 
+#'
+#' @return
+#' @export
+#'
+#' @examples
 txx_finish_tag <- function(string) {
   
   tag <- stringr::str_extract(string, pattern = "<.*>")
