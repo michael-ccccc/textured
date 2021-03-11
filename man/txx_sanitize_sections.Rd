@@ -2,7 +2,7 @@
 % Please edit documentation in R/txx_sanitize_sections.R
 \name{txx_sanitize_sections}
 \alias{txx_sanitize_sections}
-\title{Title}
+\title{Sanitizes the text}
 \usage{
 txx_sanitize_sections(string, split = "¬")
 }
@@ -15,5 +15,5 @@ txx_sanitize_sections(string, split = "¬")
 
 }
 \description{
-Title
+Sanitizes the text
 }

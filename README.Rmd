@@ -8,7 +8,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Textured
 
-This package assists in the structuring of semi-structured data in text format (where data is arranged in a "subject:data" format) into an XML document, where data exploration and extraction is much easier and standarised (see `XML` and `xml2`).
+This package assists in the structuring of semi-structured data in text format (where data is arranged in a "subject:data" format) into an XML document (<subject>data</subject>), where data exploration and extraction is much easier and standarised (see `XML` and `xml2`).
 
 ## Installation
 

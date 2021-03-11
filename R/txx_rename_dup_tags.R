@@ -5,17 +5,17 @@
 #' The text needs to be in a state where the tags have been identified, but
 #' the tags have not been finished. Identifies the start tags, and then looks
 #' though for duplicates. Any duplicate tag is adjusted, putting a number at the
-#' end. (See \code{\link{txx_number_seen}})
+#' end. (See \code{\link{txx_number_seen}}). 
+#' Used as part of the \code{\link{txx_text_to_txml}} process.
 #'
-#' @param string 
+#' @param string A character string containing text from the txx_sanitize_sections,
+#' containing text that has start tags and text (no end tags).
 #'
-#' @return
+#' @return The character string entered, but now any tags with duplicate names
+#' have a number suffixed.
 #'
 #'
-#' @examples
-#' 
-#' 
-#' 
+
 txx_rename_dup_tags <- function(string){
   
   tags <- stringr::str_extract_all(string, pattern = "(?<=<).*?(?=>)")[[1]]

@@ -18,7 +18,8 @@ A character string; a modified of \code{string}
 }
 \description{
 Splits a string into the (incomplete) tagged sections according to the split 
-character, then identifies the start tag and adds a corresponding end tag.
+character, then identifies the start tag and adds a corresponding end tag,
+and then recombines it into a single string.
 }
 \examples{
 

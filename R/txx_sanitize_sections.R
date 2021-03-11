@@ -1,10 +1,9 @@
-#' Title
+#' Sanitizes the text 
 #'
 #' @param string 
 #' @param split 
 #'
 #' @return
-#' @export
 #'
 #' @examples
 txx_sanitize_sections <- function(string, split = "\u00AC") {

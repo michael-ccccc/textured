@@ -10,16 +10,22 @@
 #' text. Each string should represent a single entry (e.g. a single letter).
 #' @param tags The character strings that identify that a section has started, 
 #' e.g. "Diagnosis:" or "SUMMARY:". This may be variable from letter to letter,
-#' in which include all variants. Order matters - if there are tags that are
-#' contained within larger tags, put the larger tag first so that it is
-#' used in the string searches first.
+#' include all variants. Order matters; the first strings are searched
+#' for first - if there are tags that are contained within larger tags, put the 
+#' larger tag first so that it is used in the string searches first.
 #'
 #' @return A vector of character strings with the text transformed into an
 #' XML structure.
 #'
 #'
 #' @examples
-#' 
+#' txx_text_to_xml(strings = "Name: Alice Age:40 Address:43 Maple Street"
+#'                 tags = c("Name:", "Age:", "Address:"))
+#'                 
+#' txx_text_to_xml(strings = 
+#'                     c("Name: Alice Age:40 Address:43 Maple Street",
+#'                       "Name: Bob Address: 44 Maple Street Age:41 Weight:100kg"),
+#'                 tags = c("Name:", "Age:", "Address:", "Weight:"))
 #' 
 #' @export
 txx_text_to_xml <- function(strings, 

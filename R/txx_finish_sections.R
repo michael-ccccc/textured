@@ -1,7 +1,8 @@
 #' Adds end tags to match start tags.
 #' 
 #' Splits a string into the (incomplete) tagged sections according to the split 
-#' character, then identifies the start tag and adds a corresponding end tag.
+#' character, then identifies the start tag and adds a corresponding end tag,
+#' and then recombines it into a single string.
 #'
 #' @param string The character string containing a single entry. Should have
 #' already been through the xml-transforming process so should have start

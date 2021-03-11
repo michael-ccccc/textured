@@ -1,7 +1,7 @@
 #' Sanitize a tag section within an XML document
 #' 
 #' Identifies the section within a tag (actually after a tag once split), and
-#' sanitizes the text of the section (see \code{txx_sanitize_text()})
+#' sanitizes the text of the section (see \code{txx_sanitize_text})
 #' 
 #'
 #' @param string String consisting of \code{<tag>section}
