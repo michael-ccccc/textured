@@ -2,7 +2,7 @@
 #'
 #' This function identifies the tags within a character string, and then wraps
 #' the identified text in XML tag syntax. Generally not used outside of the
-#' \code{txx_text_to_xml} function, but has its uses.
+#' \code{\link{txx_text_to_xml}} function, but has its uses.
 #' 
 #' Note that tag order is important - the first tags are identified first and
 #' modify the string. If there is another tag that would have identified a
@@ -22,10 +22,12 @@
 #' @return A character string with sections identified and wrapped in an XML tag.
 #' 
 #'
-#' @examples
-#' 
-#' 
-txx_identify_sections <- function(string, tags, remove = NA_character_, ignore_case = TRUE){
+## TODO: do I need to put an example here?
+
+txx_identify_sections <- function(string, 
+                                  tags, 
+                                  # remove = NA_character_, 
+                                  ignore_case = TRUE){
 
   # TODO: figure out remove - do we even still use it?
   # TODO: txx_wrap_tag has some additional arguments we can use - need to

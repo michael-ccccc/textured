@@ -1,11 +1,12 @@
-#' Title
+#' Create the finish tag (part of the txx_finish_tag process)
+#' 
+#' Extracts the start tag, and uses it to create the end tag (see
+#' \code{\link{txx_finish_sections}} for the full process).
 #'
-#' @param string 
+#' @param string A text string containing only one start tag
 #'
-#' @return
-#' @export
+#' @return A text string of the end tag
 #'
-#' @examples
 txx_finish_tag <- function(string) {
   
   tag <- stringr::str_extract(string, pattern = "<.*>")

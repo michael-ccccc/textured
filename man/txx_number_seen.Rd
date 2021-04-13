@@ -2,16 +2,20 @@
 % Please edit documentation in R/txx_number_seen.R
 \name{txx_number_seen}
 \alias{txx_number_seen}
-\title{Title}
+\title{Returns the number of times a string has appeared in the vector in the
+values before it (as part of the \code{\link{txx_rename_dup_tags}} process)}
 \usage{
 txx_number_seen(strings)
 }
 \arguments{
-\item{strings}{}
+\item{strings}{A character vector of strings}
 }
 \value{
-
+A numeric vector containing the cumulative number of times the
+string (in the strings character vector), has appeared in the values before
+it
 }
 \description{
-Title
+Returns the number of times a string has appeared in the vector in the
+values before it (as part of the \code{\link{txx_rename_dup_tags}} process)
 }

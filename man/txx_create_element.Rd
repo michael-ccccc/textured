@@ -7,16 +7,23 @@
 txx_create_element(string, tag)
 }
 \arguments{
-\item{string}{}
+\item{string}{A character string}
 
-\item{tag}{}
+\item{tag}{The character string used in the start and end tags.}
 }
 \value{
-
+A character string wrapped in the tag start and end tags.
 }
 \description{
-Create an XML element from a string
+Converts a string into an XML element by adding start and end tags. The
+string can also be an XML element, allowing for easy nesting of XML
+elements.
 }
 \examples{
+txx_create_element(string = "Alice", tag = "name")
+
+txx_create_element(string = "<name>Alice</name><age>53</age>",
+                   tag = "patient")
+
 
 }

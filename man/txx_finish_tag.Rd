@@ -2,16 +2,17 @@
 % Please edit documentation in R/txx_finish_tag.R
 \name{txx_finish_tag}
 \alias{txx_finish_tag}
-\title{Title}
+\title{Create the finish tag (part of the txx_finish_tag process)}
 \usage{
 txx_finish_tag(string)
 }
 \arguments{
-\item{string}{}
+\item{string}{A text string containing only one start tag}
 }
 \value{
-
+A text string of the end tag
 }
 \description{
-Title
+Extracts the start tag, and uses it to create the end tag (see
+\code{\link{txx_finish_sections}} for the full process).
 }

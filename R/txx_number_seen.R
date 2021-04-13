@@ -1,12 +1,15 @@
 
-#' Title
+#' Returns the number of times a string has appeared in the vector in the
+#' values before it (as part of the \code{\link{txx_rename_dup_tags}} process)
 #'
-#' @param strings 
+#' @param strings A character vector of strings
 #'
-#' @return
-#' @export
+#' @return A numeric vector containing the cumulative number of times the
+#' string (in the strings character vector), has appeared in the values before
+#' it
+#' 
 #'
-#' @examples
+#'
 txx_number_seen <- function(strings){
   
   seen <- numeric(length = length(strings))

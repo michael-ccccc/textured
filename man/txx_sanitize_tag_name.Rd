@@ -15,8 +15,9 @@ The character string, modified to be suitable for use as an XML tag
 \description{
 This function takes a character string, and returns a 'sanitized' version
 of it for use as an XML tag (following XML specifications - more details 
-below). This function is called internally, however is useful in searching
-for a specific text tag(s).
+below). This function is called internally, however is useful for converting
+a list of labels for searching in the resultant XML document for a specific 
+text tag(s).
 }
 \details{
 Changes made to the text (in this order): 
@@ -27,8 +28,4 @@ Changes made to the text (in this order):
    \item Removes any non-alphanumeric characters (aside from '_'), 
    \item Prefixes a '_' if the text starts with a number.
 }
-}
-\examples{
-
-
 }

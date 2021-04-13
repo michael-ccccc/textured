@@ -4,7 +4,7 @@
 \alias{txx_identify_sections}
 \title{Identify sections within text, and wrap in tags}
 \usage{
-txx_identify_sections(string, tags, remove = NA_character_, ignore_case = TRUE)
+txx_identify_sections(string, tags, ignore_case = TRUE)
 }
 \arguments{
 \item{string}{A character string of the document to be searched}
@@ -21,7 +21,7 @@ A character string with sections identified and wrapped in an XML tag.
 \description{
 This function identifies the tags within a character string, and then wraps
 the identified text in XML tag syntax. Generally not used outside of the
-\code{txx_text_to_xml} function, but has its uses.
+\code{\link{txx_text_to_xml}} function, but has its uses.
 }
 \details{
 Note that tag order is important - the first tags are identified first and
@@ -31,8 +31,4 @@ after.
 
 Tags can be regular expressions - use with caution to avoid mis-identifying
 sections.
-}
-\examples{
-
-
 }

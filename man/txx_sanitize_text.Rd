@@ -22,6 +22,6 @@ with the relevant XML escaped characters. As they are read in as XML, they
 should be transformed back into the proper version.
 }
 \examples{
-
+txx_sanitize_text("Alice & Bob have been in \"Charlie's\" house for >5 minutes.")
 
 }
