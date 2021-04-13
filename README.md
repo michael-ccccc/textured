@@ -116,8 +116,8 @@ sample_1
     ## # A tibble: 2 x 2
     ##   patient_id letter_text                                                        
     ##        <dbl> <chr>                                                              
-    ## 1          1 "Ref: AA/11/BBBB\nDate Dictd: 09/01/2019\nDate Typed: 15/01/2019\n~
-    ## 2          2 "Ref: CC/22/GGGG\nDate Dictd: 05/05/2019\nDate Typed: 12/05/2019\n~
+    ## 1          1 "Ref: AA/11/BBBB\r\nDate Dictd: 09/01/2019\r\nDate Typed: 15/01/20~
+    ## 2          2 "Ref: CC/22/GGGG\r\nDate Dictd: 05/05/2019\r\nDate Typed: 12/05/20~
 
 ``` r
 headings <- c("Ref:", "Date Dictd:", "Date Typed", "\nDear", "D\\.O\\.B\\.",
@@ -181,10 +181,10 @@ sample_2
     ## # A tibble: 2 x 3
     ##   patient_id letter_text                      letter_text_xml                   
     ##        <dbl> <chr>                            <chr>                             
-    ## 1          1 "Ref: AA/11/BBBB\nDate Dictd: 0~ "<start></start><Ref> AA/11/BBBB\~
-    ## 2          2 "Ref: CC/22/GGGG\nDate Dictd: 0~ "<start></start><Ref> CC/22/GGGG\~
+    ## 1          1 "Ref: AA/11/BBBB\r\nDate Dictd:~ "<start></start><Ref> AA/11/BBBB\~
+    ## 2          2 "Ref: CC/22/GGGG\r\nDate Dictd:~ "<start></start><Ref> CC/22/GGGG\~
 
-You can add additional XML elements with txx\_create\_element.
+You can add additional XML elements with `txx_create_element()`.
 
 ``` r
 sample_3 <- sample_2 %>%
@@ -207,48 +207,24 @@ You can then process this as an XML document. For example:
 library(XML)
 ```
 
-    ## Warning: package 'XML' was built under R version 4.0.4
-
 ``` r
 letters_xml <- xmlParse(letters_xml)
 
 letters_df <- xmlToDataFrame(letters_xml, stringsAsFactors = FALSE)
+
+as_tibble(letters_df)
 ```
 
-    ## Warning in names(x) == varNames: longer object length is not a multiple of
-    ## shorter object length
-
-``` r
-letters_df
-```
-
-    ##   patient start           Ref    Date_Dictd     Date_Typed
-    ## 1       1        AA/11/BBBB\n  09/01/2019\n : 15/01/2019\n
-    ## 2       2        CC/22/GGGG\n  05/05/2019\n : 12/05/2019\n
-    ##                                   Dear             Dob DateTime_Of_Appt
-    ## 1  Dr. A Andrews\n\nMr. Bob BURNQUIST   10/10/1976\n\n     09/01/2019\n
-    ## 2      Dr. C Clarkson\n\nMr. D Dancer   10/10/1955\n\n     05/05/2019\n
-    ##              Clinic
-    ## 1  Rheumatology\n\n
-    ## 2  Rheumatology\n\n
-    ##                                                                                                     Reason_For_Attendance
-    ## 1                                                                                  \nFollow-up - rheumatoid arthritis\n\n
-    ## 2 \nL1 end plate fracture\n\nDiagnosis\nFibromyalgia\nMild Asthma\n\nCurrent medications\nOmeprazole 20mg twice daily\n\n
-    ##              Rheumatological_Diagnoses
-    ## 1 \nInflammatory spondyloarthritis\n\n
-    ## 2                                 <NA>
-    ##                                 NonRheumatological_Diagnoses
-    ## 1 \nOsteoporosis\n\nMedications\nSulfasalazine 105gms bd\n\n
-    ## 2                                                       <NA>
-    ##                   Observations_In_Clinic      Assessment
-    ## 1 \nBlood pressure 120/71 mmHg today\n\n \nI reviewed...
-    ## 2  \nBlood pressure 120/71mmHg today\n\n \nI reviewed...
-    ##   Actions_For_Gp__Recommendations
-    ## 1                            <NA>
-    ## 2                       \nNil\n\n
-    ##   Management_Plan_Including_Actions_For_Patients
-    ## 1                                           <NA>
-    ## 2                     \n1. Bloods checked...\n\n
+    ## # A tibble: 2 x 16
+    ##   patient start Ref   Date_Dictd Date_Typed Dear  Dob   DateTime_Of_Appt Clinic
+    ##   <chr>   <chr> <chr> <chr>      <chr>      <chr> <chr> <chr>            <chr> 
+    ## 1 1       ""    " AA~ " 09/01/2~ ": 15/01/~ " Dr~ " 10~ " 09/01/2019\n"  " Rhe~
+    ## 2 2       ""    " CC~ " 05/05/2~ ": 12/05/~ " Dr~ " 10~ " 05/05/2019\n"  " Rhe~
+    ## # ... with 7 more variables: Reason_For_Attendance <chr>,
+    ## #   Rheumatological_Diagnoses <chr>, NonRheumatological_Diagnoses <chr>,
+    ## #   Observations_In_Clinic <chr>, Assessment <chr>,
+    ## #   Actions_For_Gp__Recommendations <chr>,
+    ## #   Management_Plan_Including_Actions_For_Patients <chr>
 
 ``` r
 longer <- letters_df %>%
@@ -263,7 +239,7 @@ longer
     ##  1 1       start                     ""                                      
     ##  2 1       Ref                       " AA/11/BBBB\n"                         
     ##  3 1       Date_Dictd                " 09/01/2019\n"                         
-    ##  4 1       Date_Typed                ": 15/01/2019\n"                        
+    ##  4 1       Date_Typed                ": 15/01/2019\n\n"                      
     ##  5 1       Dear                      " Dr. A Andrews\n\nMr. Bob BURNQUIST "  
     ##  6 1       Dob                       " 10/10/1976\n\n"                       
     ##  7 1       DateTime_Of_Appt          " 09/01/2019\n"                         

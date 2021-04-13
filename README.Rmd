@@ -138,7 +138,7 @@ sample_2
 ```
 
 
-You can add additional XML elements with txx_create_element.
+You can add additional XML elements with `txx_create_element()`.
 ```{r}
 sample_3 <- sample_2 %>%
   mutate(letter_text_xml = paste0(
@@ -156,16 +156,16 @@ letters_xml <- txx_create_element(paste0(sample_3$letter_xml, collapse = ""), "r
 
 
 You can then process this as an XML document. For example:
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(XML)
 ```
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 letters_xml <- xmlParse(letters_xml)
 
 letters_df <- xmlToDataFrame(letters_xml, stringsAsFactors = FALSE)
 
-letters_df
+as_tibble(letters_df)
 ```
 
 ```{r}
