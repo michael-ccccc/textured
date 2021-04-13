@@ -12,8 +12,8 @@
 #' @return A modified character string
 #'
 #' @examples
-#' 
-#' 
+#' txx_sanitize_text("Alice & Bob have been in \"Charlie's\" house for >5 minutes.")
+#'
 #' @export
 txx_sanitize_text <- function(text) {
   
@@ -24,9 +24,7 @@ txx_sanitize_text <- function(text) {
                          "&" = "&amp;",
                          "<" = "&lt;",
                          ">" = "&gt;",
-                         #"\\\\'" = "&apos;", don't think we need this?
                          "'" = "&apos;",
-                         #"\\\\"" = "&quot;",
                          "\"" = "&quot;"
                        ))
   

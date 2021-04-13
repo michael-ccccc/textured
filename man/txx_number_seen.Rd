@@ -19,7 +19,3 @@ it
 Returns the number of times a string has appeared in the vector in the
 values before it (as part of the \code{\link{txx_rename_dup_tags}} process)
 }
-\examples{
-txx_number_seen(c("a", "b", "c", "a", "a", "a", "a", "b", "d"))
-
-}

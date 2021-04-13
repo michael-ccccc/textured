@@ -23,8 +23,3 @@ A character string of the text as an XML tag
 Turns some text into an XML tag sanitizing the text to be suitable for
 use as an XML tag, then wrapping it in \code{<} and \code{>}.
 }
-\examples{
-
-
-
-}

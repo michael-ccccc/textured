@@ -12,8 +12,6 @@
 #' @return A character string; a modified of \code{string}
 #' 
 #'
-#' @examples
-#' 
 #' 
 #' 
 txx_finish_sections <- function(string, split = "\u00AC") {

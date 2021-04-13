@@ -2,8 +2,9 @@
 #'
 #' This function takes a character string, and returns a 'sanitized' version
 #' of it for use as an XML tag (following XML specifications - more details 
-#' below). This function is called internally, however is useful in searching
-#' for a specific text tag(s).
+#' below). This function is called internally, however is useful for converting
+#' a list of labels for searching in the resultant XML document for a specific 
+#' text tag(s).
 #' 
 #' 
 #' Changes made to the text (in this order): 
@@ -18,8 +19,6 @@
 #'
 #' @return The character string, modified to be suitable for use as an XML tag
 #'
-#' @examples
-#' 
 #'
 txx_sanitize_tag_name <- function(tag_name){
   # TODO: workout a better order for all this

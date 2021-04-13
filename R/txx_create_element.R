@@ -9,10 +9,14 @@
 #' @param string A character string
 #' @param tag The character string used in the start and end tags.
 #'
-#' @return A character string
+#' @return A character string wrapped in the tag start and end tags.
 #' 
-#'
 #' @examples
+#' txx_create_element(string = "Alice", tag = "name")
+#' 
+#' txx_create_element(string = "<name>Alice</name><age>53</age>",
+#'                    tag = "patient")
+#' 
 #' 
 #' @export
 txx_create_element <- function(string, tag){

@@ -16,7 +16,3 @@ String with \code{section} sanitized for use in an XML document
 Identifies the section within a tag (actually after a tag once split), and
 sanitizes the text of the section (see \code{txx_sanitize_text})
 }
-\examples{
-
-
-}

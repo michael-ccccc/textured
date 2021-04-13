@@ -4,7 +4,7 @@
 \alias{txx_identify_sections}
 \title{Identify sections within text, and wrap in tags}
 \usage{
-txx_identify_sections(string, tags, remove = NA_character_, ignore_case = TRUE)
+txx_identify_sections(string, tags, ignore_case = TRUE)
 }
 \arguments{
 \item{string}{A character string of the document to be searched}

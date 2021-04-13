@@ -19,7 +19,7 @@
 #'
 #'
 #' @examples
-#' txx_text_to_xml(strings = "Name: Alice Age:40 Address:43 Maple Street"
+#' txx_text_to_xml(strings = "Name: Alice Age:40 Address:43 Maple Street",
 #'                 tags = c("Name:", "Age:", "Address:"))
 #'                 
 #' txx_text_to_xml(strings = 

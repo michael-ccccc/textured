@@ -1,11 +1,7 @@
-#' Sanitizes the text 
+#' Sanitizes the text as part of the txx_text_to_xml process
 #'
-#' @param string 
-#' @param split 
 #'
-#' @return
 #'
-#' @examples
 txx_sanitize_sections <- function(string, split = "\u00AC") {
   
   strings_split <- stringr::str_split(string, pattern = split)

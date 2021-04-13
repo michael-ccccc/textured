@@ -1,5 +1,3 @@
-
-
 #' Turn text into an XML tag
 #'
 #' Turns some text into an XML tag sanitizing the text to be suitable for
@@ -13,10 +11,6 @@
 #'
 #' @return A character string of the text as an XML tag
 #'
-#'
-#' @examples
-#' 
-#' 
 #' 
 txx_wrap_tag <- function(tag, split_character = "\u00AC", start = "<", end = ">"){
   

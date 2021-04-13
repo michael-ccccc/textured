@@ -2,18 +2,10 @@
 % Please edit documentation in R/txx_sanitize_sections.R
 \name{txx_sanitize_sections}
 \alias{txx_sanitize_sections}
-\title{Sanitizes the text}
+\title{Sanitizes the text as part of the txx_text_to_xml process}
 \usage{
 txx_sanitize_sections(string, split = "¬")
 }
-\arguments{
-\item{string}{}
-
-\item{split}{}
-}
-\value{
-
-}
 \description{
-Sanitizes the text
+Sanitizes the text as part of the txx_text_to_xml process
 }

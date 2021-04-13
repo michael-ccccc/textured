@@ -8,8 +8,7 @@
 #' string (in the strings character vector), has appeared in the values before
 #' it
 #' 
-#' @examples 
-#' txx_number_seen(c("a", "b", "c", "a", "a", "a", "a", "b", "d"))
+#'
 #'
 txx_number_seen <- function(strings){
   

@@ -9,7 +9,6 @@
 #' @return String with \code{section} sanitized for use in an XML document
 #' 
 #'
-#' @examples
 #' 
 #' 
 txx_sanitize_tag_sections <- function(string) {

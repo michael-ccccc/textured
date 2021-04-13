@@ -24,7 +24,10 @@
 #'
 ## TODO: do I need to put an example here?
 
-txx_identify_sections <- function(string, tags, remove = NA_character_, ignore_case = TRUE){
+txx_identify_sections <- function(string, 
+                                  tags, 
+                                  # remove = NA_character_, 
+                                  ignore_case = TRUE){
 
   # TODO: figure out remove - do we even still use it?
   # TODO: txx_wrap_tag has some additional arguments we can use - need to
