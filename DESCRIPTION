@@ -9,7 +9,7 @@ Description: Many systems and organisations store their data as text documents,
     of reach for many data scientists. This package aims to structure the text,
     so enabling data scientists to access this data and start to analyse the
     data within.
-License: GPL-3
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
@@ -18,3 +18,5 @@ Imports:
 RoxygenNote: 7.1.1
 Suggests: 
     testthat
+Depends: 
+    R (>= 2.10)
