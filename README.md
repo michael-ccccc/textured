@@ -1,5 +1,9 @@
 
 # Textured
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/michael-ccccc/textured/workflows/R-CMD-check/badge.svg)](https://github.com/michael-ccccc/textured/actions)
+<!-- badges: end -->
+
 
 This package assists in the structuring of semi-structured data in text
 format (where data is arranged in a “subject:data” format) into an XML
