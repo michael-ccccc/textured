@@ -1,5 +1,5 @@
 ---
-title: "Introduction-to-textured"
+title: "Introduction to textured"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Introduction-to-textured}
@@ -14,6 +14,170 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+
+The textured package is meant for semi-struct*ured* *text* data, i.e. data that was contained within free text, but still had some structure.
+
+
+## A sample scenario
+
+This package was developed to help extract information from patient letters from a hospital, where the letters had some structure, but was inconsistent between one letter to the text.
+
+Here's an example letter:
+
+```
+Ref: AA/11/BBBB
+Date Dictd: 09/01/2019
+Date Typed: 15/01/2019
+
+Dear Dr. A Andrews
+
+Mr. Bob BURNQUIST D.O.B. 10/10/1976
+
+Date/Time of Appt: 09/01/2019
+Clinic: Rheumatology
+
+Reason for attendance:
+Follow-up - rheumatoid arthritis
+
+Rheumatological Diagnoses
+Inflammatory spondyloarthritis
+
+Non-rheumatological Diagnoses
+Osteoporosis
+
+Medications
+Sulfasalazine 105gms bd
+
+Observations in Clinic
+Blood pressure 120/71 mmHg today
+
+Assessment
+I reviewed...
+
+```
+
+And here's another:
+
+```
+
+Ref: CC/22/GGGG
+Date Dictd: 05/05/2019
+Date Typed: 12/05/2019
+
+Dear Dr. C Clarkson
+
+Mr. D Dancer D.O.B. 10/10/1955
+
+Date/Time of Appt: 05/05/2019
+Clinic: Rheumatology
+
+Reason for attendance:
+L1 end plate fracture
+
+Diagnosis
+Fibromyalgia
+Mild Asthma
+
+Current medications
+Omeprazole 20mg twice daily
+
+Observations in Clinic
+Blood pressure 120/71mmHg today
+
+Actions for GP / Recommendations
+Nil
+
+Management Plan (including Actions for Patients)
+1. Bloods checked...
+
+Assessment
+I reviewed...
+```
+
+While the two letters above are similar, they're slightly different in structure; both have differing sections, and similar sections have different headers. This can make extraction difficult (especially if considering much more letters (e.g. 8,000), as well as storage - a tabular format is not suitable for letters with an inconsistent structure.
+
+However, XML, a semi-structure data structure, is much more suitable, and this is what this package revolves around: the splitting and conversion of documents into an XML format. Once converted, the data can then be read in XML software to be analysed, where there are tools which are much more suitable.
+
+```{r setup, echo=TRUE, message=FALSE, warning=FALSE}
+library(tidyverse)
 library(textured)
 ```
+
+```{r message=FALSE, warning=FALSE}
+sample_1 <- read_csv("data/sample_letters.csv")
+
+sample_1
+```
+
+```{r}
+headings <- c("Ref:", "Date Dictd:", "Date Typed", "\nDear", "D\\.O\\.B\\.",
+              "Date/Time of Appt:", "Clinic:", "Reason for attendance:",
+              "Diagnoses:", "Non-rheumatological Diagnoses", "Rheumatological Diagnoses",
+              "Current medications:", "Medications:", "Observations in Clinic",
+              "Assessment", "Actions for GP / Recommendations",
+              "Management Plan \\(including Actions for Patients\\)")
+# Note: txx_text_to_txml is sensitive to regular expressions (this is why
+# there's escape characters)
+```
+
+Performing on a single letter:
+
+```{r}
+a <- sample_1$letter_text[1]
+b <- txx_text_to_xml(strings = a, tags = headings)
+```
+
+```{r}
+cat(b)
+```
+
+Performing from a dataframe (or tibble):
+```{r}
+sample_2 <- sample_1 %>%
+  mutate(letter_text_xml = txx_text_to_xml(letter_text, tags = headings))
+
+sample_2
+```
+
+
+You can add additional XML elements with `txx_create_element()`.
+```{r}
+sample_3 <- sample_2 %>%
+  mutate(letter_text_xml = paste0(
+    txx_create_element(patient_id, "patient"),
+    letter_text_xml
+  )) %>%
+  mutate(letter_xml = txx_create_element(letter_text_xml, "letter"))
+```
+
+
+Then collate the XML elements into a single XML document.
+```{r}
+letters_xml <- txx_create_element(paste0(sample_3$letter_xml, collapse = ""), "root")
+```
+
+
+You can then process this as an XML document. For example:
+```{r message=FALSE, warning=FALSE}
+library(XML)
+```
+
+```{r message=FALSE, warning=FALSE}
+letters_xml <- xmlParse(letters_xml)
+
+letters_df <- xmlToDataFrame(letters_xml, stringsAsFactors = FALSE)
+
+as_tibble(letters_df)
+```
+
+```{r}
+longer <- letters_df %>%
+  pivot_longer(cols = -patient, names_to = "section", values_to = "text")
+
+longer
+```
+
+
+
+
+
