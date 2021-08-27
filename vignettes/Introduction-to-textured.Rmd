@@ -99,12 +99,16 @@ While the two letters above are similar, they're slightly different in structure
 However, XML, a semi-structure data structure, is much more suitable, and this is what this package revolves around: the splitting and conversion of documents into an XML format. Once converted, the data can then be read in XML software to be analysed, where there are tools which are much more suitable.
 
 ```{r setup, echo=TRUE, message=FALSE, warning=FALSE}
-library(tidyverse)
+library(readr)
+library(dplyr)
+library(tidyr)
 library(textured)
 ```
 
 ```{r message=FALSE, warning=FALSE}
-sample_1 <- read_csv("data/sample_letters.csv")
+data_pos <- system.file("extdata", "sample_letters.csv", package = "textured")
+
+sample_1 <- read_csv(data_pos)
 
 sample_1
 ```
